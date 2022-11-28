@@ -19,7 +19,12 @@ II.     Layout          components/layout/Layout -> MainNav
 III.    _app    
             wrap inside SessionProvider, then inside Layout
 
-IV.     styles for the above pages and components
+IV.     styles for 
+        i.      styles/global.css 
+        ii.     HomePage
+        iii.    Layout and MainNav
+
+
 
 
 
