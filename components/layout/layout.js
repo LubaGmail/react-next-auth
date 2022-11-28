@@ -1,10 +1,13 @@
 
 import styles from './layout.module.css'
+import MainNav from './main-nav'
 
-const Layout = () => {
+const Layout = (props) => {
 
     return (
         <>
+            <MainNav />
+            {props.children}
         </>
     )
 }

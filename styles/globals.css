@@ -15,6 +15,16 @@ a {
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
+.center {
+  margin: 0 auto;
+  align-content: center;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
