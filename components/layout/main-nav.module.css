@@ -6,6 +6,7 @@
     height: 5rem;
     background-color: #4d0b78;
     color: white;
+    box-shadow: 0 4px 4px silver;
     font-size: large;
 }
 .logo {

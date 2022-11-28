@@ -8,22 +8,25 @@ useSession ReactJS hook that works only on client that returns states which help
         - vs -
 getSession async function that read current cookies and returns session, works both on Client and Server
 
+justify-content: (horizontally)   vs   align-items: (vertically)   
+
 401     not authenticated
 403     not authorized/forbidden
 422     input incorrect
 
 I.      HomePage        pages/index
 
-II.     Layout          components/layout/Layout -> MainNav 
+        i.     Layout          components/layout/Layout -> MainNav 
 
-III.    _app    
-            wrap inside SessionProvider, then inside Layout
+        ii.    _app    
+                wrap inside SessionProvider, then inside Layout
 
-IV.     styles for 
-        i.      styles/global.css 
-        ii.     HomePage
-        iii.    Layout and MainNav
+        iii.    styles for 
+                a)     styles/global.css 
+                b)     HomePage
+                c)     Layout and MainNav
 
+        iv.     Add links to pages
 
 
 
