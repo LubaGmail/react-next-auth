@@ -3,12 +3,12 @@ import Image from 'next/image'
 
 import Landing from '../components/landing/landing'
 
-const HomePage = () => {
+const ProfilePage = () => {
   return (
     <>
-      <Landing />
+      <h2 className='center'>Profile</h2>
     </>
   )
 }
 
-export default HomePage
+export default ProfilePage

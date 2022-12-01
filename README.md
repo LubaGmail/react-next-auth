@@ -28,6 +28,22 @@ I.      HomePage        pages/index
 
         iv.     Add links to pages
 
+II.     pages/auth
+
+        op === 'signin' or 'signup'
+
+        i.      pages/auth/     ->      <SigninForm />       ->      pages/api/auth/signup.js
+                form:   email, pass, repeatPass, submit
+
+        ii.     pages/auth/     ->      <SignupForm />
+                form: email, pass, submit
+
+
+        
+
+
+
+
 
 
 
