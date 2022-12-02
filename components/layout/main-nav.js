@@ -15,7 +15,7 @@ const MainNav = () => {
                 </Link>
                 <ul className={styles.menuItems}>
                     <Link href={{
-                        pathname: "/auth/auth",
+                        pathname: "/auth",
                         query: { op: 'signin' }
                     }}>            
                         <li>Sign In </li>

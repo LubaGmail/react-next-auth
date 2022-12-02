@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
-import SigninForm from "../../components/auth/signin-form"
-import SignupForm from '../../components/auth/signup-form'
+import SigninForm from "../components/auth/signin-form"
+import SignupForm from '../components/auth/signup-form'
 
 const AuthPage = () => {
     const [op, setOp] = useState('signin')

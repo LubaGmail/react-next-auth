@@ -1,19 +1,59 @@
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 
 const SignupForm = (props) => {
     const emailRef = useRef()
     const passRef = useRef()
     const repeatPassRef = useRef()
 
+    const SIGNUP_API = '/api/auth/signup'
+
+    const [result, setResult] = useState()
+
+    const clearForm = () => {
+        emailRef.current.value = ''
+        passRef.current.value = ''
+        repeatPassRef.current.value = ''
+    }
+    const clearMessages = () => {
+        setResult({})
+    }
+
+    const postRecord = async (obj) => {
+        const response = await fetch(SIGNUP_API, {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application-json'
+            }
+        })
+        let res = {}
+        res.statusCode = response.status
+        const data = await response.json()
+        res.appStatus = data.appStatus
+        res.detail = data.detail
+        setResult(res)
+        if (response.status === 201) {
+            clearForm()
+        } 
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        const obj = {
-            email: emailRef.current.value,
-            pass: passRef.current.value,
-            repeatPass: repeatPassRef.current.value
-    
+        if (passRef.current.value.trim() !== repeatPassRef.current.value.trim()) {
+            let res = {}
+            res.statusCode = 422
+            res.appStatus = 'error'
+            res.appStatus = 'Password and Repeat Password should be equal.'
+            setResult(res)
+            return
         }
-        console.log('obj', obj)
+        const obj = {
+            email: emailRef.current.value.trim(),
+            pass: passRef.current.value.trim(),
+            repeatPass: repeatPassRef.current.value.trim()
+        }
+        postRecord(obj)
     }
 
     return (
@@ -21,6 +61,7 @@ const SignupForm = (props) => {
            
             <form onSubmit={handleSubmit}>
                 <h2>Create an account</h2>
+                <p onClick={clearMessages}>Result: {JSON.stringify(result)}</p>
                 <div>
                     <label htmlFor='email'>Your Email: </label>
                     <input type='email' id='email' name='email' required minlength="5" maxlength="20"

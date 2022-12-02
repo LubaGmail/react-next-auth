@@ -28,7 +28,7 @@ I.      HomePage        pages/index
 
         iv.     Add links to pages
 
-II.     pages/auth
+II.     pages/api/login
 
         op === 'signin' or 'signup'
 
