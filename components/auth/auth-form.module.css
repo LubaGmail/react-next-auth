@@ -8,25 +8,29 @@
     padding: 1rem;
     text-align: center;
     color: white;
-    font-size: 14px;
-  }
-  .auth h2 {
+    font-size: medium;
+    font-weight: 500;
+}
+.auth h2 {
     text-align: center;
-    font-size: x-large;
-  }
-  .auth p {
+    font-size: xx-large;
+    font-weight: 500;
+}
+.auth p {
     text-align: left;
     color:blanchedalmond;
-  }
-  .control {
+    font-size:smaller;
+    font-weight: 400;
+}
+.control {
     margin-bottom: 0.5rem;
-  }
-  .control label {
+}
+.control label {
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
-  }
-  .control input {
+}
+.control input {
     font: inherit;
     background-color: #f1e1fc;
     color: black;
@@ -35,12 +39,13 @@
     width: 100%;
     text-align: left;
     padding: 0.25rem;
-  }
-  .actions {
+}
+.actions {
     display: inline-grid;
     grid-template-columns: 100px 100px;
     grid-gap: 1rem;
     justify-items: center;
+    margin: 1rem 1rem;
 }
 .actions button {
     cursor: pointer;
@@ -50,6 +55,10 @@
     border: 1px solid #9f5ccc;
     border-radius: 4px;
     padding: 0.3rem 2rem;
+}
+.actions button:hover {
+    background-color: #873abb;
+    border-color: #873abb;
 }
 .switcher button{
    cursor: pointer;

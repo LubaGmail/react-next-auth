@@ -32,10 +32,10 @@ II.     pages/api/login
 
         op === 'signin' or 'signup'
 
-        i.      pages/auth/     ->      <SigninForm />       ->      pages/api/auth/signup.js
+        i.      pages/auth/     ->      <SigninForm />       ->      pages/api/auth/signin.js
                 form:   email, pass, repeatPass, submit
 
-        ii.     pages/auth/     ->      <SignupForm />
+        ii.     pages/auth/     ->      <SignupForm />       ->      pages/api/auth/signup.js
                 form: email, pass, submit
 
 

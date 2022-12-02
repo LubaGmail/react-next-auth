@@ -10,6 +10,7 @@ const SignupForm = (props) => {
     const SIGNUP_API = '/api/auth/signup'
 
     const [result, setResult] = useState()
+    const [isError, setIsError] = useState()
 
     const clearForm = () => {
         emailRef.current.value = ''
@@ -48,6 +49,7 @@ const SignupForm = (props) => {
             res.appStatus = 'error'
             res.appStatus = 'Password and Repeat Password should be equal.'
             setResult(res)
+            setIsError(true)
             return
         }
         const obj = {
@@ -63,7 +65,9 @@ const SignupForm = (props) => {
            
             <form onSubmit={handleSubmit} className={styles.auth}>
                 <h2>Create an account</h2>
-                <p onClick={clearMessages}>Result: {JSON.stringify(result)}</p>
+                <p onClick={clearMessages}>
+                    Result: {JSON.stringify(result)}
+                </p>
                 <div className={styles.control}>
                     <label htmlFor='email'>Your Email: </label>
                     <input type='email' id='email' name='email' required minlength="5" maxlength="20"
