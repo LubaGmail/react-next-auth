@@ -1,0 +1,61 @@
+.auth {
+    margin: 3rem auto;
+    width: 95%;
+    max-width: 25rem;
+    border-radius: 6px;
+    background-color: #4d0b78;
+    box-shadow: 0 4px 4px silver;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+  }
+  .auth h2 {
+    text-align: center;
+    font-size: x-large;
+  }
+  .auth p {
+    text-align: left;
+    color:blanchedalmond;
+  }
+  .control {
+    margin-bottom: 0.5rem;
+  }
+  .control label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .control input {
+    font: inherit;
+    background-color: #f1e1fc;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid black;
+    width: 100%;
+    text-align: left;
+    padding: 0.25rem;
+  }
+  .actions {
+    display: inline-grid;
+    grid-template-columns: 100px 100px;
+    grid-gap: 1rem;
+    justify-items: center;
+}
+.actions button {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: #9f5ccc;
+    border: 1px solid #9f5ccc;
+    border-radius: 4px;
+    padding: 0.3rem 2rem;
+}
+.switcher button{
+   cursor: pointer;
+   background-color: #4d0b78;
+   color: white;
+   padding: .5rem;
+   font-size: medium;
+}
+  

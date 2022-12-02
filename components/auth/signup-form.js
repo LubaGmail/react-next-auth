@@ -1,4 +1,6 @@
-import {useRef, useState} from 'react'
+import { useRef, useState } from 'react'
+
+import styles from './auth-form.module.css'
 
 const SignupForm = (props) => {
     const emailRef = useRef()
@@ -59,37 +61,37 @@ const SignupForm = (props) => {
     return (
         <>
            
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.auth}>
                 <h2>Create an account</h2>
                 <p onClick={clearMessages}>Result: {JSON.stringify(result)}</p>
-                <div>
+                <div className={styles.control}>
                     <label htmlFor='email'>Your Email: </label>
                     <input type='email' id='email' name='email' required minlength="5" maxlength="20"
                         ref={emailRef} 
                     />
                 </div>
 
-                <div>
+                <div className={styles.control}>
                     <label htmlFor='pass'>Create Password: </label>
                     <input type='password' id='pass' name='pass' required minlength="3" maxlength="20"
                         ref={passRef}
                     />
                 </div>
 
-                <div>
+                <div className={styles.control}>
                     <label htmlFor='repeatPass'>Repeat Password: </label>
                     <input type='password' id='repeatPass' name='repeatPass' required  minlength="3" maxlength="20"
                         ref={repeatPassRef}
                     />
                 </div>
              
-                <div>
+                <div className={styles.actions}>
                     <button type='submit'>Submit</button>
                     <button type='reset'>Clear</button>
                 </div>
             </form>
 
-            <div>
+            <div className={styles.switcher}>
                 <button onClick={props.toSignin}>Sign In to your account</button>
             </div>
      
