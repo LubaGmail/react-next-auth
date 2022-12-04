@@ -20,17 +20,25 @@ const MainNav = () => {
                     </div>
                 </Link>
                 <ul className={styles.menuItems}>
+
+
                     <Link href={{
                         pathname: "/auth",
                         query: { op: 'signin' }
-                    }}>            
-                        <li>Sign In </li>
-                    </Link>
-                    <Link href='/profile'>
-                        <li>Profile</li>
+                    }}>
+                        <li>Sign In / Sign Up </li>
                     </Link>
 
-                    <li onClick={handleLogout}>Logout</li>
+                    {session && (
+                        <Link href='/profile'>
+                            <li>Profile</li>
+                        </Link>
+                    )}
+
+                    {session && (
+                        <li onClick={handleLogout}>Logout</li>
+                    )}
+
                 </ul>
             </nav>
         </>
