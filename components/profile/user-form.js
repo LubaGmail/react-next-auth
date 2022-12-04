@@ -1,4 +1,6 @@
-import {useRef, useState} from 'react'
+import { useRef, useState } from 'react'
+
+import styles from './user-form.module.css'
 
 const UserForm = ({ onChangePass, parentToChild }) => {
     const oldPassRef = useRef()
@@ -34,7 +36,7 @@ const UserForm = ({ onChangePass, parentToChild }) => {
 
     return (
         <>
-            <section  className='center'>
+            <section  className={styles.container}>
     
                 <h2>Change Password</h2>
 
@@ -47,28 +49,28 @@ const UserForm = ({ onChangePass, parentToChild }) => {
                 }
 
                 <form onSubmit={handleSubmit} onReset={handleClear}>
-                    <div>
+                    <div className={styles.control}>
                         <label htmlFor='oldPass'>Old Password</label>
                         <input type='password' id='pass' name='pass'
                             required 
                             ref={oldPassRef}
                         />
                     </div>
-                    <div>
+                    <div className={styles.control} >
                         <label htmlFor='newPass'>New Password</label>
                         <input type='password' id='newPass' name='newPass' 
                             required minLength={3} maxLength={20}
                             ref={newPassRef}
                         />
                     </div>
-                    <div>
+                    <div className={styles.control} >
                         <label htmlFor='repeatNewPass'>Repeat New Password</label>
                         <input type='password' id='repeatNewPass' name='repeatNewPass' 
                             required minLength={3} maxLength={20}
                             ref={repeatNewPassRef}
                         />
                     </div>
-                    <div>
+                    <div className={styles.actions }>
                         <button>Submit</button>
                         <button type='reset'>Clear</button>
                     </div>

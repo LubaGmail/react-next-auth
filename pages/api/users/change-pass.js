@@ -82,7 +82,7 @@ async function handler(req, res) {
     }
 
     if (client) client.close()
-    res.status(200).json({ appStatus: 'success', detail: 'Yout password has been changed.'})
+    res.status(200).json({ appStatus: 'success', detail: 'Your password has been changed.'})
 }
 
 export default handler
