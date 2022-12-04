@@ -8,6 +8,7 @@ const UserForm = ({ onChangePass, parentToChild }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setError(null)
         const obj = {
             oldPass: oldPassRef.current.value.trim(),
             newPass: newPassRef.current.value.trim(),
@@ -39,7 +40,7 @@ const UserForm = ({ onChangePass, parentToChild }) => {
 
                 {error && <p>{error}</p>}
 
-                parentToChild: {JSON.stringify(parentToChild.statusCode)}
+                {/* parentToChild: {JSON.stringify(parentToChild.statusCode)} */}
                
                 {
                     parentToChild.statusCode === 200 ? handleClear() : null
