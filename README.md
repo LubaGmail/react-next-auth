@@ -28,15 +28,23 @@ I.      HomePage        pages/index
 
         iv.     Add links to pages
 
-II.     pages/api/login
+II.     pages/auth.js
 
-        op === 'signin' or 'signup'
+        op === 'signup' or 'signin'
+        
+        i.      pages/auth/     ->      <SignupForm />       ->       pages/api/auth/signup.js
+                form: email, pass, repeatPass, submit, clear, toSignin
 
-        i.      pages/auth/     ->      <SigninForm />       ->      pages/api/auth/signin.js
-                form:   email, pass, repeatPass, submit
+        ii.     pages/auth/     ->      <SigninForm />       ->      pages/api/auth/signin.js
+                form:   email, pass, submit, clear, toSignup
 
-        ii.     pages/auth/     ->      <SignupForm />       ->      pages/api/auth/signup.js
-                form: email, pass, submit
+III.    Profile
+        i.      pages/profile   ->      components/profile/user-profile <--> profile.form    <-->       pages/api/users/change-pass
+        ii.     styles
+
+IV.     Signout
+
+VI.     Meta
 
 
         

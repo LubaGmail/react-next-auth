@@ -70,21 +70,21 @@ const SignupForm = (props) => {
                 </p>
                 <div className={styles.control}>
                     <label htmlFor='email'>Your Email: </label>
-                    <input type='email' id='email' name='email' required minlength="5" maxlength="20"
+                    <input type='email' id='email' name='email' required minLength="5" maxLength="20"
                         ref={emailRef} 
                     />
                 </div>
 
                 <div className={styles.control}>
                     <label htmlFor='pass'>Create Password: </label>
-                    <input type='password' id='pass' name='pass' required minlength="3" maxlength="20"
+                    <input type='password' id='pass' name='pass' required minLength="3" maxLength="20"
                         ref={passRef}
                     />
                 </div>
 
                 <div className={styles.control}>
                     <label htmlFor='repeatPass'>Repeat Password: </label>
-                    <input type='password' id='repeatPass' name='repeatPass' required  minlength="3" maxlength="20"
+                    <input type='password' id='repeatPass' name='repeatPass' required  minLength="3" maxLength="20"
                         ref={repeatPassRef}
                     />
                 </div>
