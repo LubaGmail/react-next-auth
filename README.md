@@ -44,7 +44,9 @@ III.    Profile
 
 IV.     Signout
 
-VI.     Meta
+VI.     Secure MainNav links
+
+
 
 
         

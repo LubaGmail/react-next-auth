@@ -1,13 +1,11 @@
 import { useRef, useState } from 'react'
+import { signIn } from "next-auth/react"
 
 import styles from './auth-form.module.css'
 
 const SigninForm = (props) => {
     const emailRef = useRef()
     const passRef = useRef()
-
-    const SIGNUP_API = '/api/auth/signup'
-
     const [result, setResult] = useState()
 
     const clearForm = () => {
@@ -18,40 +16,34 @@ const SigninForm = (props) => {
         setResult({})
     }
 
-    const postRecord = async (obj) => {
-        const response = await fetch(SIGNUP_API, {
-            method: 'PATCH',
-            body: JSON.stringify(obj),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application-json'
-            }
-        })
-        let res = {}
-        res.statusCode = response.status
-        const data = await response.json()
-        res.appStatus = data.appStatus
-        res.detail = data.detail
-        setResult(res)
-        if (response.status === 201) {
-            clearForm()
-        } 
-    }
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault()
         const obj = {
             email: emailRef.current.value.trim(),
             pass: passRef.current.value.trim(),
         }
-        postRecord(obj)
+        const result = await signIn('credentials', {
+            redirect: false,
+            email: obj.email,
+            pass: obj.pass,
+        });
+
+        setResult({
+            statusCode: result.status,
+            appStatus: result.ok,
+            error: result.error,
+        })
+
+        if (result.ok) {
+            clearForm()
+        }
     }
 
     return (
         <>
            
             <form className={styles.auth} onSubmit={handleSubmit}>
-                <h2>Create an account</h2>
+                <h2>Sign In</h2>
                 <p onClick={clearMessages}>
                     Result: {JSON.stringify(result)}
                 </p>
@@ -76,7 +68,7 @@ const SigninForm = (props) => {
             </form>
 
             <div className={styles.switcher}>
-                <button onClick={props.toSignin}>Create a new account</button>
+                <button onClick={props.toSignup}>Create a new account</button>
             </div>
      
         </>

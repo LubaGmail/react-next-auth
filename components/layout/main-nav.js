@@ -1,9 +1,15 @@
 import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/react';
 import { useEffect } from 'react'
 
 import styles from './main-nav.module.css'
 
 const MainNav = () => {
+    const { data: session, status } = useSession()
+    
+    const handleLogout = () => {
+        signOut();
+    }
 
     return (
          <>
@@ -23,7 +29,8 @@ const MainNav = () => {
                     <Link href='/profile'>
                         <li>Profile</li>
                     </Link>
-                    <li>Logout</li>
+
+                    <li onClick={handleLogout}>Logout</li>
                 </ul>
             </nav>
         </>
