@@ -49,14 +49,14 @@ const SigninForm = (props) => {
                 </p>
                 <div className={styles.control}>
                     <label htmlFor='email'>Your Email: </label>
-                    <input type='email' id='email' name='email' required minlength="5" maxlength="20"
+                    <input type='email' id='email' name='email' required minLength="5" maxLength="20"
                         ref={emailRef} 
                     />
                 </div>
 
                 <div className={styles.control}>
                     <label htmlFor='pass'>Yout Password: </label>
-                    <input type='password' id='pass' name='pass' required minlength="3" maxlength="20"
+                    <input type='password' id='pass' name='pass' required minLength="3" maxLength="20"
                         ref={passRef}
                     />
                 </div>

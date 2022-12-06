@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import Head from 'next/head'
 
 import SigninForm from "../components/auth/signin-form"
 import SignupForm from '../components/auth/signup-form'
@@ -13,6 +14,9 @@ const AuthPage = () => {
         setOp('signin')   
     }
 
+    let title
+    op === 'signin' ? title = 'Sign In into your account' : title = 'Sign Up to our services'
+
     return (
         <>
             <h2 className="center">
@@ -23,6 +27,9 @@ const AuthPage = () => {
                     (op === 'signup') && (<SignupForm toSignin={toSignin} /> )
                 }
             </h2>
+            <Head>
+                <title>{title}</title>
+            </Head>
         </>
     )
 }

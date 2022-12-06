@@ -1,14 +1,20 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { getSession } from 'next-auth/react';
 
 import UserProfile from '../components/profile/user-profile'
 
 const ProfilePage = () => {
   return (
-
     <>
       <UserProfile />
+
+      <Head>
+        <title>Profile Page</title>
+        <meta
+          name='Change password'
+          content='You can change your password here'
+        />
+      </Head>
     </>
   )
 }
