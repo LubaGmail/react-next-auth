@@ -17,7 +17,7 @@ module.exports = (phase) => {
     env: {
       mongo_username: 'm220student',
       mongo_pass: 'perchik',
-      mongo_cluster: 'cluster0',
+      mongo_cluster: 'cluster0.jb7dw.mongodb.net/',
     },
   }
 
