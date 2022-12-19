@@ -30,25 +30,27 @@ const SignupForm = (props) => {
                 'Content-Type': 'application-json'
             }
         })
-        let res = {}
-        res.statusCode = response.status
         const data = await response.json()
-        res.appStatus = data.appStatus
-        res.detail = data.detail
-        setResult(res)
         if (response.status === 201) {
             clearForm()
         } 
+
+        setResult({
+            statusCode: response.status,
+            appStatus: data.appStatus,
+            detail: data.detail
+        })
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         if (passRef.current.value.trim() !== repeatPassRef.current.value.trim()) {
-            let res = {}
-            res.statusCode = 422
-            res.appStatus = 'error'
-            res.appStatus = 'Password and Repeat Password should be equal.'
-            setResult(res)
+            setResult({
+                statusCode: 422,
+                appStatus: 'error',
+                detail: 'Password and Repeat Password should be equal.'
+            })
+            
             setIsError(true)
             return
         }

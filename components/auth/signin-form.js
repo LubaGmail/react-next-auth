@@ -23,7 +23,7 @@ const SigninForm = (props) => {
             pass: passRef.current.value.trim(),
         }
         const result = await signIn('credentials', {
-            redirect: false,
+            redirect: false,        // stary on the
             email: obj.email,
             pass: obj.pass,
         });

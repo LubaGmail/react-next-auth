@@ -2,7 +2,6 @@ import { connectDb, findRecord, insertRecord } from '../../../lib/db'
 import { hashPass } from '../../../lib/auth'
 
 const validate = (email, pass, repeatPass) => {
-    console.log('v', email, pass, repeatPass)
     if (!email || email?.length < 5 ||
         !email?.includes('@') ||
         !pass || pass?.length < 3 ||
@@ -44,8 +43,7 @@ const handler = async (req, res) => {
         throw new Error('Failed to connect to the database.')
     }
 
-    // client, dbName, collName, query
-    let record = await findRecord(client, 'user_db', 'users', { "email": obj.email })
+    let record = await findRecord(client, { "email": obj.email })
     if (record) {
         res.status(422).json({ appStatus: 'error', detail: 'Email already exists. Try again!' })
         if (client) { client.close() }
@@ -64,7 +62,7 @@ const handler = async (req, res) => {
     obj.pass = hashedPass
     let ret
     try {
-        ret = await insertRecord(client, 'user_db', 'users', obj) 
+        ret = await insertRecord(client, obj) 
         res.status(201).json({appStatus: 'success', detail: 'Key=' +  ret.insertedId })
     } catch (error) {
         res.status(500).json({ appStatus: 'error', detail: error.toString() })

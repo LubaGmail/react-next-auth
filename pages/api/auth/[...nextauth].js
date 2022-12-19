@@ -9,6 +9,13 @@ export default NextAuth({
     session: {
         jwt: true,
     },
+    /**  submit form 
+        const result = await signIn('credentials', {
+            redirect: false,        // stay in the form
+            email: obj.email,
+            pass: obj.pass,
+        });
+     */
     providers: [
         CredentialsProvider({
             async authorize(credentials) {
@@ -17,7 +24,7 @@ export default NextAuth({
                     throw new Error('Failed connect to dB')
                 }
 
-                const user = await findRecord(client, 'user_db', 'users', { email: credentials.email })
+                const user = await findRecord(client, { email: credentials.email })
                 if (!user) {
                     if (client) client.close()
                     throw new Error('User is not valid')
@@ -32,7 +39,7 @@ export default NextAuth({
                 }
 
                 if (client) client.close()
-
+                // obj will be encoded into the jwt token
                 return { email: user.email }
             }
         })
