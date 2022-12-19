@@ -44,7 +44,7 @@ async function handler(req, res) {
   
     let user
     try {
-        user = await findRecord(client, 'user_db', 'users', {email: email})
+        user = await findRecord(client, {email: email})
     } catch (error) {
         if (client) client.close()
         res.status(500).json({ appStatus: 'error', detail: error.toString() })
@@ -68,7 +68,7 @@ async function handler(req, res) {
     const hashedNewPass = await hashPass(newPass)
     let result
     try {
-        result = await updateRecord(client, 'user_db', 'users', { email: email }, { $set: { pass: hashedNewPass } })
+        result = await updateRecord(client, { email: email }, { $set: { pass: hashedNewPass } })
     } catch (error) {
         if (client) client.close()
         res.status(500).json({ appStatus: 'error', detail: error.toString() })

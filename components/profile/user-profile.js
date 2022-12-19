@@ -8,7 +8,6 @@ const UserProfile = () => {
     const [result, setResult] = useState({})
 
     const onChangePass = async(obj) => {
-        
         const response = await fetch(USER_API, {
             method: 'PATCH',
             body: JSON.stringify(obj),
@@ -24,7 +23,6 @@ const UserProfile = () => {
             appStatus: data.appStatus,
             detail: data.detail
         })
-
     }
 
     return (
